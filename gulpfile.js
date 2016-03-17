@@ -7,13 +7,13 @@ var del     = require('del');
 gulp.task('minify', function() {
   return gulp.src('index.html')
     .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('minified'))
 });
 
 gulp.task('minify-css', function() {
   return gulp.src('vendor/mocha.css')
     .pipe(cleanCSS({compatibility: 'ie8'}))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('minified'));
 })
 
 gulp.task('compress', function() {
@@ -22,7 +22,7 @@ gulp.task('compress', function() {
         exclude: ['tasks'],
         ignoreFiles: ['.combo.js', '-min.js']
     }))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('minified'))
 });
 
 gulp.task('clean', function(cb) {
