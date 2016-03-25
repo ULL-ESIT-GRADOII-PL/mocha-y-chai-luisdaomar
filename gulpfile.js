@@ -28,3 +28,6 @@ gulp.task('compress', function() {
 gulp.task('clean', function(cb) {
   del(['minified/*'], cb);
 });
+
+gulp.task('default', ['minify-js', 'minify-css', 'minify-html'], function() {
+});
